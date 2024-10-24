@@ -1,0 +1,103 @@
+body {
+    height: 100vh;
+    background-color: #111;
+    color: white;
+}
+h2, h1{
+  font-family: monospace;
+  color: white;
+}
+.toggle-button {
+    width: 170px;
+    height: 55px;
+    background-color: #f8ffc7;
+    border-radius: 100px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    transition: background-color 0.3s ease-in-out;
+   
+}
+
+.toggle-button input {
+    display: none;
+}
+
+.circle {
+    width: 60px;
+    height: 60px;
+    background-color: #b89a7f;
+    border-radius: 50%;
+    position: absolute;
+    left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.7s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+.inner-circle {
+    width: 25px;
+    height: 38px;
+    background-color: #633912;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease-in-out, background-color 0.5s ease-in-out, border-radius 0.5s ease-in-out, height 0.5s ease-in-out, width 0.5s ease-in-out;
+}
+.handle{
+  color: transparent;
+  margin-left: -9px;
+  opacity: 0;
+  transition: color 0.5s ease-in-out, opacity 0.4s;
+}
+.last-circle {
+    width: 3px;
+    height: 33px;
+    background-color: #3b2109;
+    border-radius: 40%;
+    transition: transform 0.5s ease-in-out, background-color 0.5s ease-in-out, height 0.5s ease-in-out;
+}
+
+/* Main toggle transformation */
+.toggle-button input:checked + .circle {
+    transform: translateX(110px) rotate(360deg);
+    background-color: #b89a7f;
+}
+
+/* Inner circle animation when toggled */
+.toggle-button input:checked + .circle .inner-circle {
+    transform: rotate(-90deg) translateY(3px);
+    background-color: white; 
+    border-radius: 50px 100% 100% 50px;
+    width: 30px;
+    height: 30px;
+}
+/* Inner handle when toggled */
+.toggle-button input:checked + .circle .handle {
+    transform: rotate(75deg) translateX(-16px) translateY(-5px);
+    color: white;
+    font-size: 23px; 
+    opacity: 1;
+}
+/* Last circle animation when toggled */
+.toggle-button input:checked + .circle .inner-circle .last-circle {
+    transform: translateX(10px); 
+    background-color: #3b2109;
+    height: 23px;
+    width: 8px;
+}
+
+/* Toggle background color when checked */
+.toggle-button input:checked {
+    background-color: red;
+}
+
+.label {
+    color: white;
+    font-weight: bold;
+    margin-left: 20px;
+}
